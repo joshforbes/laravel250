@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('...layouts.layout')
 
 @section('content')
 
@@ -23,7 +23,7 @@
 
         <!-- Password Form Input -->
         <div class="form-group">
-            {{ Form::label('password_confirmation', 'Password: ') }}
+            {{ Form::label('password_confirmation', 'Confirm Password: ') }}
             {{ Form::password('password_confirmation', ['class' => 'form-control', 'required' => 'required']) }}
         </div>
 
