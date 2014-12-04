@@ -1,26 +1,16 @@
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Registration</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="/">Home</a></li>
+<div class="top-bar">
+    <a class="brand" href="/">Laravel250</a>
+    <div class="account-container">
 
             @if (Auth::guest())
-                <li><a href="/register">Register</a></li>
-                <li><a href="/login">Login</a></li>
+                <a href="/register"><button class="btn btn-success">Register</button></a>
+                <a href="/login"><button class="btn btn-primary">Login</button></a>
             @else
-                <li><a href="/logout">Logout</a></li>
+                {{ link_to_route('profile', 'Profile', Auth::user()->username, ['class' => 'btn btn-primary']) }}
+                <a href="/logout"><button class="btn btn-danger">Logout</button></a>
             @endif
 
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
+    </div>
+</div>
+
+

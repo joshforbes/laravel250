@@ -14,13 +14,9 @@ return array(
 	|
 	*/
 
-	'mailgun' => array(
-		'domain' => '',
-		'secret' => '',
-	),
 
 	'mandrill' => array(
-		'secret' => '',
+		'secret' => getenv('MANDRILL_SECRET'),
 	),
 
 	'stripe' => array(

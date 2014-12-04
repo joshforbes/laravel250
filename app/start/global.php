@@ -56,6 +56,12 @@ App::error(function(\Web250\Forms\FormValidationException $exception, $code)
     return Redirect::back()->withInput()->withErrors($exception->getErrors());
 });
 
+App::error(function(Illuminate\Database\Eloquent\ModelNotFoundException $exception)
+{
+    Flash::error('Not Found');
+    return Redirect::home();
+});
+
 
 
 /*

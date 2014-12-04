@@ -39,10 +39,13 @@ class SessionsController extends \BaseController {
 
         if (Auth::attempt($input))
         {
+            Flash::message('Welcome back '.Auth::user()->username);
             return Redirect::intended('/');
         }
 
-        return Redirect::back()->withInput()->withFlashMessage('Invalid credentials provided');
+        Flash::error('Invalid credentials provided');
+
+        return Redirect::back()->withInput();
 	}
 
 	/**

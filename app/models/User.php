@@ -7,7 +7,7 @@ use Illuminate\Auth\Reminders\RemindableInterface;
 
 class User extends Eloquent implements UserInterface, RemindableInterface {
 
-    protected $fillable = ['email', 'password'];
+    protected $fillable = ['username', 'email', 'password'];
 
 	use UserTrait, RemindableTrait;
 
@@ -28,6 +28,18 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
     public function setPasswordAttribute($password)
     {
         $this->attributes['password'] = Hash::make($password);
+    }
+
+    public function profile()
+    {
+        return $this->hasOne('Profile');
+    }
+
+    public function isCurrent()
+    {
+        if (Auth::guest()) return false;
+
+        return Auth::user()->id == $this->id;
     }
 
 }

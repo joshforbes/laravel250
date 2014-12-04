@@ -2,14 +2,21 @@
 
 @section('content')
 
-<div class="starter-template">
+<div class="form-container">
     <h1>Register</h1>
 
     {{ Form::open(['route' => 'registration.store']) }}
 
+        <!-- Username Form Input -->
+        <div class="form-group">
+            {{ Form::label('username', 'Pick a username: ') }}
+            {{ Form::text('username', null, ['class' => 'form-control', 'required' => 'required']) }}
+            {{ $errors->first('username', '<span class="error">:message</span>') }}
+        </div>
+
         <!-- Email Form Input -->
         <div class="form-group">
-            {{ Form::label('email', 'Email: ') }}
+            {{ Form::label('email', 'Your email: ') }}
             {{ Form::text('email', null, ['class' => 'form-control', 'required' => 'required']) }}
             {{ $errors->first('email', '<span class="error">:message</span>') }}
         </div>

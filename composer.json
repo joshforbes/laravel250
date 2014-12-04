@@ -5,7 +5,8 @@
 	"license": "MIT",
 	"type": "project",
 	"require": {
-		"laravel/framework": "4.2.*"
+		"laravel/framework": "4.2.*",
+		"guzzlehttp/guzzle": "4.*"
 	},
 	"autoload": {
 		"classmap": [
@@ -38,6 +39,7 @@
 	},
 	"minimum-stability": "stable",
 	"require-dev": {
-		"way/generators": "2.*"
+		"way/generators": "2.*",
+        "laracasts/flash": "~1.0"
 	}
 }
